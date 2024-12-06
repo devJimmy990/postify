@@ -1,21 +1,15 @@
-import Header from "@components/Header";
-import PostForm from "@components/lib/PostForm";
-import PostsList from "@components/PostsList";
+'use client';
+import { FC, memo,  } from "react";
+import store from "@/redux/store";
+import { Provider,  } from "react-redux";
+import HomePage from "@components/pages/HomePage";
 
-export default function Home() {
+const Home: FC = () => {
   return (
-    <div
-      className="w-full h-full flex flex-1 gap-16 font-[var(--font-geist-sans)] "
-    >
-      <div className="w-1/4">
-        <PostForm />
-      </div>
-
-      <div className="w-3/4 h-full flex flex-col items-center gap-4">
-        <Header />
-        <PostsList />
-      </div>
-    </div>
-
+    <Provider store={store}>
+      <HomePage />
+    </Provider>
   );
 }
+
+export default memo(Home)
