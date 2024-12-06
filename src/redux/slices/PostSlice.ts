@@ -40,6 +40,7 @@ export const postSlice = createSlice({
         setActivePost: (state, action) => {
             state.active = action.payload;
         },
+        resetActive: (state) => { state.active = {} as PostType; },
         loadMorePosts: (state) => {
             state.posts = [...state.posts, ...state.data.slice(state.page * 10, (state.page + 1) * 10)];
             state.loading = false;
@@ -56,5 +57,6 @@ export const {
     removePost,
     setActivePost,
     loadMorePosts,
-    startLoading
+    startLoading,
+    resetActive
 } = postSlice.actions;

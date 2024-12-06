@@ -37,7 +37,7 @@ const PostsList: FC<{ posts: PostType[], canLoad: boolean }> = ({ posts, canLoad
             {posts.map((post) => (
                 <PostCard key={post.id} {...post} />
             ))}
-            {loading && Array.from({ length: 3 }).map((_, i) => <SkeletonPostCard key={i} />)}
+            {loading && Array.from({ length: 5 }).map((_, i) => <SkeletonPostCard key={i} />)}
             <div id="interceptor" ref={interceptor} className="h-8 w-full invisible" >sds</div>
         </div>
     );
